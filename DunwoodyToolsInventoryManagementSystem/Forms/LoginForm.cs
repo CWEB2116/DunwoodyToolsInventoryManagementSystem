@@ -26,11 +26,20 @@ namespace DunwoodyToolsInventoryManagementSystem.Forms
             int y = (this.ClientSize.Height - loginPanel.Height) / 2;
             loginPanel.Location = new Point(x, y);
         }
-        public static string EncodePasswordToBase64(string password)
+
+        public static byte[] GetHash(string inputString)
         {
-            byte[] bytes = Encoding.Unicode.GetBytes(password);
-            byte[] inArray = HashAlgorithm.Create("SHA1").ComputeHash(bytes);
-            return Convert.ToBase64String(inArray);
+            using (HashAlgorithm algorithm = SHA256.Create())
+                return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
+        }
+
+        public static string GetHashString(string inputString)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in GetHash(inputString))
+                sb.Append(b.ToString("X2"));
+
+            return sb.ToString();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -60,8 +69,9 @@ namespace DunwoodyToolsInventoryManagementSystem.Forms
                     Console.WriteLine("Password empty!");
                 }
                 else { 
-                    password = EncodePasswordToBase64(password);
+                    password = inputPassword.Text;
                     Console.WriteLine(password);
+                    Console.WriteLine(GetHashString(password));
                 }
             }
         }
