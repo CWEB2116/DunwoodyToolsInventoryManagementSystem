@@ -51,6 +51,7 @@
             this.inventoryGridView.ReadOnly = true;
             this.inventoryGridView.RowHeadersWidth = 51;
             this.inventoryGridView.RowTemplate.Height = 24;
+            this.inventoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.inventoryGridView.Size = new System.Drawing.Size(620, 450);
             this.inventoryGridView.TabIndex = 1;
             this.inventoryGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventoryGridView_CellContentClick);
