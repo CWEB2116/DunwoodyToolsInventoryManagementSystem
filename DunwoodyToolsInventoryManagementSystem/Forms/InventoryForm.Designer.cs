@@ -42,14 +42,19 @@
             // 
             // inventoryGridView
             // 
+            this.inventoryGridView.AllowUserToAddRows = false;
+            this.inventoryGridView.AllowUserToDeleteRows = false;
             this.inventoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inventoryGridView.Location = new System.Drawing.Point(180, 0);
             this.inventoryGridView.Name = "inventoryGridView";
+            this.inventoryGridView.ReadOnly = true;
             this.inventoryGridView.RowHeadersWidth = 51;
             this.inventoryGridView.RowTemplate.Height = 24;
             this.inventoryGridView.Size = new System.Drawing.Size(620, 450);
             this.inventoryGridView.TabIndex = 1;
+            this.inventoryGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventoryGridView_CellContentClick);
+            this.inventoryGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.inventoryGridView_CellMouseClick);
             // 
             // sidenavControl1
             // 
