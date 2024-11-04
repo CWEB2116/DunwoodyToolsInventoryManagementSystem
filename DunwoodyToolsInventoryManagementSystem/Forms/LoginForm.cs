@@ -29,7 +29,7 @@ namespace DunwoodyToolsInventoryManagementSystem.Forms
 
         public static byte[] GetHash(string inputString)
         {
-            using (HashAlgorithm algorithm = SHA256.Create())
+            using (HashAlgorithm algorithm = SHA512.Create())
                 return algorithm.ComputeHash(Encoding.UTF8.GetBytes(inputString));
         }
 
@@ -59,6 +59,7 @@ namespace DunwoodyToolsInventoryManagementSystem.Forms
             if (inputUsername.Text == "")
             {
                 Console.WriteLine("Username empty!");
+                MessageBox.Show("Please enter a username!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else {
                 username = inputUsername.Text;
@@ -67,6 +68,7 @@ namespace DunwoodyToolsInventoryManagementSystem.Forms
                 if (inputPassword.Text == "")
                 {
                     Console.WriteLine("Password empty!");
+                    MessageBox.Show("Please enter a password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else { 
                     password = inputPassword.Text;
