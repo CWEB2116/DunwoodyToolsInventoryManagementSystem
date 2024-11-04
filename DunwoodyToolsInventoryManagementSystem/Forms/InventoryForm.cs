@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DunwoodyToolsInventoryManagementSystem.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,12 @@ namespace DunwoodyToolsInventoryManagementSystem
             this.SetStyle(ControlStyles.UserPaint, true);
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.UpdateStyles();
+        }
+
+        private void InventoryForm_Load(object sender, EventArgs e)
+        {
+            DataTable iventoryDatatable = DatabaseHelper.GetItems();
+            inventoryGridView.DataSource = iventoryDatatable;
         }
     }
 }

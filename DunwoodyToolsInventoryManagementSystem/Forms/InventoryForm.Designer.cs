@@ -29,8 +29,27 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryForm));
+            this.dataSet1 = new System.Data.DataSet();
+            this.inventoryGridView = new System.Windows.Forms.DataGridView();
             this.sidenavControl1 = new DunwoodyToolsInventoryManagementSystem.Controls.SidenavControl();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "NewDataSet";
+            // 
+            // inventoryGridView
+            // 
+            this.inventoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inventoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.inventoryGridView.Location = new System.Drawing.Point(180, 0);
+            this.inventoryGridView.Name = "inventoryGridView";
+            this.inventoryGridView.RowHeadersWidth = 51;
+            this.inventoryGridView.RowTemplate.Height = 24;
+            this.inventoryGridView.Size = new System.Drawing.Size(620, 450);
+            this.inventoryGridView.TabIndex = 1;
             // 
             // sidenavControl1
             // 
@@ -46,10 +65,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.inventoryGridView);
             this.Controls.Add(this.sidenavControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InventoryForm";
             this.Text = "Dunwoody Tools Inventory Management System";
+            this.Load += new System.EventHandler(this.InventoryForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -57,6 +80,8 @@
         #endregion
 
         private Controls.SidenavControl sidenavControl1;
+        private System.Data.DataSet dataSet1;
+        private System.Windows.Forms.DataGridView inventoryGridView;
     }
 }
 
