@@ -1,4 +1,5 @@
-﻿using DunwoodyToolsInventoryManagementSystem.Helpers;
+﻿using DunwoodyToolsInventoryManagementSystem.Forms;
+using DunwoodyToolsInventoryManagementSystem.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -148,6 +149,100 @@ namespace DunwoodyToolsInventoryManagementSystem
 
             // Update the label to show the selected row count
             counter.Text = $"{selectedRowCount}";
+        }
+
+        private void AddItem()
+        {
+            // Open ItemForm without initial values (for adding a new item)
+            ItemForm itemForm = new ItemForm();
+            if (itemForm.ShowDialog() == DialogResult.OK)
+            {
+                // Retrieve new item details from itemForm
+                string newItemName = itemForm.ItemName;
+                string newStatus = itemForm.Status;
+                List<string> newCategories = itemForm.SelectedCategories;
+                string newDescription = itemForm.Description;
+                byte[] newImageData = itemForm.ImageData;
+
+                // Add the new item to the database
+                DatabaseHelper.AddItem(newItemName, newStatus, newDescription, newImageData, newCategories);
+
+                // Refresh the DataGridView to display the new item
+                LoadInventoryDataDrid();
+            }
+        }
+
+        private void EditItem()
+        {
+            // Ensure an item is selected in the DataGridView
+            if (inventoryGridView.SelectedRows.Count > 0)
+            {
+                // Get selected item details from the DataGridView
+                DataGridViewRow selectedRow = inventoryGridView.SelectedRows[0];
+                string currentItemName = selectedRow.Cells["ItemName"].Value.ToString();
+                string currentStatus = selectedRow.Cells["status_name"].Value.ToString();
+                string currentDescription = selectedRow.Cells["Description"].Value.ToString();
+                byte[] currentImageData = selectedRow.Cells["ImageData"].Value as byte[];
+
+                // Retrieve the list of categories for this item
+                int itemId = (int)selectedRow.Cells["id"].Value;
+                List<string> currentCategories = DatabaseHelper.GetCategoriesForItem(itemId);
+
+                // Open ItemForm with the current item data for editing
+                ItemForm itemForm = new ItemForm(currentItemName, currentStatus, currentCategories, currentDescription, currentImageData);
+                if (itemForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Update item details in the database
+                    DatabaseHelper.UpdateItem(itemId, itemForm.ItemName, itemForm.Status, itemForm.Description, itemForm.ImageData, itemForm.SelectedCategories);
+
+                    // Refresh the DataGridView to show the updated item
+                    LoadInventoryDataDrid();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select an item to edit.");
+            }
+        }
+
+        private void DeleteItem()
+        {
+            // Ensure an item is selected in the DataGridView
+            if (inventoryGridView.SelectedRows.Count > 0)
+            {
+                DialogResult confirmResult = MessageBox.Show("Are you sure you want to delete this item?",
+                                                             "Confirm Delete", MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    // Get the ID of the selected item
+                    int itemId = (int)inventoryGridView.SelectedRows[0].Cells["id"].Value;
+
+                    // Delete the item from the database
+                    DatabaseHelper.DeleteItem(itemId);
+
+                    // Refresh the DataGridView to remove the deleted item
+                    LoadInventoryDataDrid();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select an item to delete.");
+            }
+        }
+
+        private void toolStripAddButton_Click(object sender, EventArgs e)
+        {
+            AddItem();
+        }
+
+        private void toolStripEditButton_Click(object sender, EventArgs e)
+        {
+            EditItem();
+        }
+
+        private void toolStripDeleteButton_Click(object sender, EventArgs e)
+        {
+            DeleteItem();
         }
     }
 }

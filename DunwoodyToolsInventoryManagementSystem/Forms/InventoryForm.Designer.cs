@@ -32,23 +32,23 @@
             this.dataSet1 = new System.Data.DataSet();
             this.inventoryGridView = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDeleteButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripAddButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripEditButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDeleteButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripViewButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripUnselectButton = new System.Windows.Forms.ToolStripButton();
-            this.sidenavControl1 = new DunwoodyToolsInventoryManagementSystem.Controls.SidenavControl();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.comboBoxCategory = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.counter = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.counter = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.sidenavControl1 = new DunwoodyToolsInventoryManagementSystem.Controls.SidenavControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventoryGridView)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -83,9 +83,9 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDeleteButton,
+            this.toolStripAddButton,
             this.toolStripEditButton,
-            this.toolStripButton3,
+            this.toolStripDeleteButton,
             this.toolStripViewButton,
             this.toolStripSeparator1,
             this.toolStripUnselectButton});
@@ -95,14 +95,15 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripDeleteButton
+            // toolStripAddButton
             // 
-            this.toolStripDeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDeleteButton.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.add;
-            this.toolStripDeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDeleteButton.Name = "toolStripDeleteButton";
-            this.toolStripDeleteButton.Size = new System.Drawing.Size(29, 28);
-            this.toolStripDeleteButton.Text = "Add";
+            this.toolStripAddButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripAddButton.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.add;
+            this.toolStripAddButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripAddButton.Name = "toolStripAddButton";
+            this.toolStripAddButton.Size = new System.Drawing.Size(29, 28);
+            this.toolStripAddButton.Text = "Add";
+            this.toolStripAddButton.Click += new System.EventHandler(this.toolStripAddButton_Click);
             // 
             // toolStripEditButton
             // 
@@ -112,15 +113,17 @@
             this.toolStripEditButton.Name = "toolStripEditButton";
             this.toolStripEditButton.Size = new System.Drawing.Size(29, 28);
             this.toolStripEditButton.Text = "Edit";
+            this.toolStripEditButton.Click += new System.EventHandler(this.toolStripEditButton_Click);
             // 
-            // toolStripButton3
+            // toolStripDeleteButton
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.bin;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButton3.Text = "Delete";
+            this.toolStripDeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDeleteButton.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.bin;
+            this.toolStripDeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDeleteButton.Name = "toolStripDeleteButton";
+            this.toolStripDeleteButton.Size = new System.Drawing.Size(29, 28);
+            this.toolStripDeleteButton.Text = "Delete";
+            this.toolStripDeleteButton.Click += new System.EventHandler(this.toolStripDeleteButton_Click);
             // 
             // toolStripViewButton
             // 
@@ -145,15 +148,6 @@
             this.toolStripUnselectButton.Size = new System.Drawing.Size(91, 28);
             this.toolStripUnselectButton.Text = "Unselect All";
             this.toolStripUnselectButton.Click += new System.EventHandler(this.toolStripUnselectButton_Click_1);
-            // 
-            // sidenavControl1
-            // 
-            this.sidenavControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(29)))), ((int)(((byte)(48)))));
-            this.sidenavControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidenavControl1.Location = new System.Drawing.Point(0, 0);
-            this.sidenavControl1.Name = "sidenavControl1";
-            this.sidenavControl1.Size = new System.Drawing.Size(180, 450);
-            this.sidenavControl1.TabIndex = 0;
             // 
             // comboBoxCategory
             // 
@@ -180,14 +174,39 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // counter
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 16);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Category";
+            this.counter.AutoSize = true;
+            this.counter.Location = new System.Drawing.Point(533, 38);
+            this.counter.Name = "counter";
+            this.counter.Size = new System.Drawing.Size(44, 16);
+            this.counter.TabIndex = 11;
+            this.counter.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(498, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(116, 16);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Selected Records";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(281, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Text Search";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(284, 32);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(180, 22);
+            this.textBoxSearch.TabIndex = 8;
             // 
             // label2
             // 
@@ -206,39 +225,23 @@
             this.comboBoxStatus.Size = new System.Drawing.Size(121, 24);
             this.comboBoxStatus.TabIndex = 6;
             // 
-            // textBoxSearch
+            // label1
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(284, 32);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(180, 22);
-            this.textBoxSearch.TabIndex = 8;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Category";
             // 
-            // label3
+            // sidenavControl1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(281, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Text Search";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(498, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 16);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Selected Records";
-            // 
-            // counter
-            // 
-            this.counter.AutoSize = true;
-            this.counter.Location = new System.Drawing.Point(533, 38);
-            this.counter.Name = "counter";
-            this.counter.Size = new System.Drawing.Size(44, 16);
-            this.counter.TabIndex = 11;
-            this.counter.Text = "label5";
+            this.sidenavControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(29)))), ((int)(((byte)(48)))));
+            this.sidenavControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidenavControl1.Location = new System.Drawing.Point(0, 0);
+            this.sidenavControl1.Name = "sidenavControl1";
+            this.sidenavControl1.Size = new System.Drawing.Size(180, 450);
+            this.sidenavControl1.TabIndex = 0;
             // 
             // InventoryForm
             // 
@@ -270,9 +273,9 @@
         private System.Data.DataSet dataSet1;
         private System.Windows.Forms.DataGridView inventoryGridView;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripDeleteButton;
+        private System.Windows.Forms.ToolStripButton toolStripAddButton;
         private System.Windows.Forms.ToolStripButton toolStripEditButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripDeleteButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripUnselectButton;
         private System.Windows.Forms.ToolStripButton toolStripViewButton;
