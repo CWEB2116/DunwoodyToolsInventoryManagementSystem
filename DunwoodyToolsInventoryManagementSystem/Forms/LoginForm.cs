@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Data.SqlClient;
+using DunwoodyToolsInventoryManagementSystem.Helpers;
 
 namespace DunwoodyToolsInventoryManagementSystem.Forms
 {
@@ -74,6 +76,18 @@ namespace DunwoodyToolsInventoryManagementSystem.Forms
                     password = inputPassword.Text;
                     Console.WriteLine(password);
                     Console.WriteLine(GetHashString(password));
+
+                    if (!DatabaseHelper.CheckLoginCredentials(username, GetHashString(password)))
+                    {
+                        MessageBox.Show("Either this account doesn't exist, or the provided credentials are incorrect.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else { 
+                        this.Hide();
+                        InventoryForm inventoryForm = new InventoryForm();
+                        inventoryForm.Show();
+                    }
+
+                    
                 }
             }
         }
