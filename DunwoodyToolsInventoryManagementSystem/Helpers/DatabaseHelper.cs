@@ -36,6 +36,8 @@ namespace DunwoodyToolsInventoryManagementSystem.Helpers
         SELECT 
             i.id,
             i.item_name AS ItemName,
+            i.item_description,
+            i.item_image,
             s.status_name,
             STRING_AGG(c.category_name, ', ') AS Categories
         FROM 
@@ -47,7 +49,7 @@ namespace DunwoodyToolsInventoryManagementSystem.Helpers
         JOIN 
             category_tbl c ON ic.category_id = c.id
         GROUP BY 
-            i.id, i.item_name, s.status_name
+            i.id, i.item_name, s.status_name, i.item_description, i.item_image
         ORDER BY 
             i.id;";
 

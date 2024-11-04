@@ -51,6 +51,7 @@ namespace DunwoodyToolsInventoryManagementSystem
             inventoryGridView.DataSource = iventoryDatatable;
 
             inventoryGridView.Columns["id"].HeaderText = "Item ID";
+            inventoryGridView.Columns["item_description"].HeaderText = "Description";
             inventoryGridView.Columns["id"].Visible = false;
             inventoryGridView.Columns["ItemName"].HeaderText = "Name";
             inventoryGridView.Columns["status_name"].HeaderText = "Status";
@@ -181,8 +182,8 @@ namespace DunwoodyToolsInventoryManagementSystem
                 DataGridViewRow selectedRow = inventoryGridView.SelectedRows[0];
                 string currentItemName = selectedRow.Cells["ItemName"].Value.ToString();
                 string currentStatus = selectedRow.Cells["status_name"].Value.ToString();
-                string currentDescription = selectedRow.Cells["Description"].Value.ToString();
-                byte[] currentImageData = selectedRow.Cells["ImageData"].Value as byte[];
+                string currentDescription = selectedRow.Cells["item_description"].Value.ToString();
+                byte[] currentImageData = selectedRow.Cells["item_image"].Value as byte[];
 
                 // Retrieve the list of categories for this item
                 int itemId = (int)selectedRow.Cells["id"].Value;
