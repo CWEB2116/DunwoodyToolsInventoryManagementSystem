@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DunwoodyToolsInventoryManagementSystem.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,8 +57,14 @@ namespace DunwoodyToolsInventoryManagementSystem.Controls
         private void sidenavLogoutButton_Click(object sender, EventArgs e)
         {
             Form parentForm = FindForm();
+            Point point = parentForm.Location;
             Console.WriteLine("Logout Button pressed in " + parentForm.Name);
             parentForm.Hide();
+            LoginForm loginForm = new LoginForm();
+            loginForm.StartPosition = FormStartPosition.Manual;
+            loginForm.Location = point;
+            loginForm.Show();
+
         }
     }
 }
