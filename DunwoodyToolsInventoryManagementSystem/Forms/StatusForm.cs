@@ -21,5 +21,12 @@ namespace DunwoodyToolsInventoryManagementSystem
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.UpdateStyles();
         }
+
+        private void StatusForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dCT_ToolsDataSet.status_tbl' table. You can move, or remove it, as needed.
+            this.status_tblTableAdapter.Fill(this.dCT_ToolsDataSet.status_tbl);
+
+        }
     }
 }

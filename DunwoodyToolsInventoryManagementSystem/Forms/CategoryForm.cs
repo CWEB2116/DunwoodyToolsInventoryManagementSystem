@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DunwoodyToolsInventoryManagementSystem.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,13 @@ namespace DunwoodyToolsInventoryManagementSystem
             this.SetStyle(ControlStyles.UserPaint, true);
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.UpdateStyles();
+        }
+
+        private void CategoryForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'dCT_ToolsDataSet1.category_tbl' table. You can move, or remove it, as needed.
+            this.category_tblTableAdapter.Fill(this.dCT_ToolsDataSet1.category_tbl);
+
         }
     }
 }

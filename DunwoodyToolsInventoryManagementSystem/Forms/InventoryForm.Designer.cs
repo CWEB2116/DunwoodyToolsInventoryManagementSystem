@@ -66,13 +66,13 @@
             this.inventoryGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.inventoryGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inventoryGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inventoryGridView.Location = new System.Drawing.Point(180, 93);
+            this.inventoryGridView.Location = new System.Drawing.Point(180, 89);
             this.inventoryGridView.Name = "inventoryGridView";
             this.inventoryGridView.ReadOnly = true;
             this.inventoryGridView.RowHeadersWidth = 51;
             this.inventoryGridView.RowTemplate.Height = 24;
             this.inventoryGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inventoryGridView.Size = new System.Drawing.Size(620, 357);
+            this.inventoryGridView.Size = new System.Drawing.Size(620, 361);
             this.inventoryGridView.TabIndex = 1;
             this.inventoryGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventoryGridView_CellContentClick);
             this.inventoryGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.inventoryGridView_CellMouseClick);
@@ -91,7 +91,7 @@
             this.toolStripUnselectButton});
             this.toolStrip1.Location = new System.Drawing.Point(180, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(620, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(620, 27);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -101,7 +101,7 @@
             this.toolStripAddButton.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.add;
             this.toolStripAddButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripAddButton.Name = "toolStripAddButton";
-            this.toolStripAddButton.Size = new System.Drawing.Size(29, 28);
+            this.toolStripAddButton.Size = new System.Drawing.Size(29, 24);
             this.toolStripAddButton.Text = "Add";
             this.toolStripAddButton.Click += new System.EventHandler(this.toolStripAddButton_Click);
             // 
@@ -111,7 +111,7 @@
             this.toolStripEditButton.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.edit;
             this.toolStripEditButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripEditButton.Name = "toolStripEditButton";
-            this.toolStripEditButton.Size = new System.Drawing.Size(29, 28);
+            this.toolStripEditButton.Size = new System.Drawing.Size(29, 24);
             this.toolStripEditButton.Text = "Edit";
             this.toolStripEditButton.Click += new System.EventHandler(this.toolStripEditButton_Click);
             // 
@@ -121,7 +121,7 @@
             this.toolStripDeleteButton.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.bin;
             this.toolStripDeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDeleteButton.Name = "toolStripDeleteButton";
-            this.toolStripDeleteButton.Size = new System.Drawing.Size(29, 28);
+            this.toolStripDeleteButton.Size = new System.Drawing.Size(29, 24);
             this.toolStripDeleteButton.Text = "Delete";
             this.toolStripDeleteButton.Click += new System.EventHandler(this.toolStripDeleteButton_Click);
             // 
@@ -131,13 +131,13 @@
             this.toolStripViewButton.Image = global::DunwoodyToolsInventoryManagementSystem.Properties.Resources.info;
             this.toolStripViewButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripViewButton.Name = "toolStripViewButton";
-            this.toolStripViewButton.Size = new System.Drawing.Size(29, 28);
+            this.toolStripViewButton.Size = new System.Drawing.Size(29, 24);
             this.toolStripViewButton.Text = "View";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripUnselectButton
             // 
@@ -145,7 +145,7 @@
             this.toolStripUnselectButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripUnselectButton.Image")));
             this.toolStripUnselectButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripUnselectButton.Name = "toolStripUnselectButton";
-            this.toolStripUnselectButton.Size = new System.Drawing.Size(91, 28);
+            this.toolStripUnselectButton.Size = new System.Drawing.Size(91, 24);
             this.toolStripUnselectButton.Text = "Unselect All";
             this.toolStripUnselectButton.Click += new System.EventHandler(this.toolStripUnselectButton_Click_1);
             // 
@@ -168,7 +168,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.comboBoxCategory);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(180, 31);
+            this.groupBox1.Location = new System.Drawing.Point(180, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(620, 62);
             this.groupBox1.TabIndex = 5;

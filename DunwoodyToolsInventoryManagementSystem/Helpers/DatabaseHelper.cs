@@ -302,6 +302,32 @@ namespace DunwoodyToolsInventoryManagementSystem.Helpers
             return statuses;
         }
 
+        public static DataTable GetStatusesv2()
+        {
+            string query = "SELECT id, status_name AS StatusName FROM status_tbl ORDER BY status_name";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                DataTable statusesTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(statusesTable);
+                return statusesTable;
+            }
+        }
+        public static DataTable GetCategoriesv2()
+        {
+            string query = "SELECT id, category_name AS CategoryName FROM category_tbl ORDER BY category_name";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                DataTable categoriesTable = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(categoriesTable);
+                return categoriesTable;
+            }
+        }
 
 
 
